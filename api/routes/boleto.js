@@ -8,7 +8,7 @@ router.get('/:numBoleto', (req, res, next) => {
         campo1 = numBoleto.substr(0,8);
         campo2 = numBoleto.substr(8,8);
         campo3 = numBoleto.substr(16,8);
-        campo4 = numBoleto.substr(,8);
+        campo4 = numBoleto.substr(0,8);
         idMoeda = numBoleto.substr(3,1);
         dv = numBoleto.substr(4,1);
         fatorVencimento = numBoleto.substr(5,4);
@@ -16,13 +16,13 @@ router.get('/:numBoleto', (req, res, next) => {
         campoLivre = numBoleto.substr(19);
     }
 
-// * Para cálculo do DV do Código Barras, consulte Anexo V
-// ** Para cálculo do Fator de Vencimento, consulte o Anexo I II
-// *** Os padrões do BB estão identificados nos Anexos VI, VII, X e  IX
+// * Para cï¿½lculo do DV do Cï¿½digo Barras, consulte Anexo V
+// ** Para cï¿½lculo do Fator de Vencimento, consulte o Anexo I II
+// *** Os padrï¿½es do BB estï¿½o identificados nos Anexos VI, VII, X e  IX
 
     res.status(400).json({
         error: {
-            message: 'Número de boleto inválido.'
+            message: 'Numero de boleto invalido.'
         }
     });
 
