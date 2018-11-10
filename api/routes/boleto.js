@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const formula = require("../formulas.js");
+
 router.get('/:numBoleto', (req, res, next) => {
     const numBoleto = req.params.numBoleto;
 
@@ -16,9 +18,6 @@ router.get('/:numBoleto', (req, res, next) => {
         campoLivre = numBoleto.substr(19);
     }
 
-// * Para c�lculo do DV do C�digo Barras, consulte Anexo V
-// ** Para c�lculo do Fator de Vencimento, consulte o Anexo I II
-// *** Os padr�es do BB est�o identificados nos Anexos VI, VII, X e  IX
 
     res.status(400).json({
         error: {
@@ -29,7 +28,3 @@ router.get('/:numBoleto', (req, res, next) => {
 });
 
 module.exports = router;
-
-//23793130225083141459905006305204870010000002000
-//23793381286000152497860000063309477060000002000
-//23793.38128 60001.524978 60000.063309 4 77 060000002000
