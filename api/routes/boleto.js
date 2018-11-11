@@ -19,7 +19,7 @@ router.get('/:numBoleto', (req, res, next) => {
     }
 
     if (tipoBoleto !== 'bancario' && tipoBoleto !== 'concessionaria') {
-        err.message = 'A linha digitavel está incompleta!'
+        err.message = 'A linha digitavel está incompleta! #' + numBoleto.length;
         err.status = 400;
         throw err;
     }
@@ -81,7 +81,7 @@ router.get('/:numBoleto', (req, res, next) => {
         err.status = 400;
         throw err;
     }
-
+    // Dependendo do 
     if (tipoBoleto === 'concessionaria' && (digitoD != formula.CalculaDACModulo10(campoD) ||
         (['6', '7'].indexOf(campoA.substr(2, 1)) != -1 && digitoGeral != formula.CalculaDACModulo10(campoA.substr(0, 3) + campoA.slice(4) + campoB + campoC + campoD))) ||
         (['8', '9'].indexOf(campoA.substr(2, 1)) != -1 && digitoGeral != formula.CalculaDACModulo11(campoA.substr(0, 3) + campoA.slice(4) + campoB + campoC + campoD))) {
